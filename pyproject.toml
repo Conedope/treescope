@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "treescope"
+version = "1.0.0"
+description = "A tree-like directory viewer CLI: connector glyphs, size summaries, .gitignore-style ignores, sort modes, JSON dumps. Deterministic and fully offline."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Conedope" }]
+keywords = ["tree", "directory", "filesystem", "cli", "viewer", "gitignore"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Filesystems",
+    "Topic :: Utilities",
+]
+dependencies = []
+
+[project.scripts]
+treescope = "treescope.cli:main"
+
+[tool.setuptools]
+packages = ["treescope"]
