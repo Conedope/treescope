@@ -129,19 +129,20 @@ $ treescope . --ignore "*.pyc,__pycache__*,*.egg-info,build,dist,.git"
 |   `-- core.py
 |-- .gitignore
 |-- LICENSE
+|-- README.md
 `-- pyproject.toml
-4 directories, 11 files
+4 directories, 12 files
 ```
 
 ### 2. With sizes, directories only
 
 ```sh
 $ treescope . --sizes --dirs-only --ignore "*.pyc,__pycache__*,*.egg-info"
-. [DIR]                 (163.1 KB)
+. [DIR]                 (233.3 KB)
 |-- .github [DIR]          (605 B)
 |   `-- workflows [DIR]    (605 B)
-|-- tests [DIR]         (103.3 KB)
-`-- treescope [DIR]      (56.8 KB)
+|-- tests [DIR]         (104.8 KB)
+`-- treescope [DIR]      (57.0 KB)
 4 directories, 0 files
 ```
 
@@ -152,7 +153,7 @@ $ treescope . --json --ignore "*.pyc,__pycache__*,*.egg-info"
 {
   "name": ".",
   "type": "dir",
-  "size": 167054,
+  "size": 238902,
   "children": [
     {
       "name": ".github",
@@ -171,6 +172,31 @@ $ treescope . --json --ignore "*.pyc,__pycache__*,*.egg-info"
               "children": []
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "tests",
+      "type": "dir",
+      "size": 107303,
+      "children": [
+        {
+          "name": "helpers.py",
+          "type": "file",
+          "size": 3181,
+          "children": []
+        },
+        {
+          "name": "test_cli.py",
+          "type": "file",
+          "size": 11273,
+          "children": []
+        },
+        {
+          "name": "test_core.py",
+          "type": "file",
+          "size": 19646,
+          "children": []
         }
       ]
     }

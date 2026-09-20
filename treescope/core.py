@@ -34,6 +34,7 @@ from __future__ import annotations
 
 import fnmatch
 import os
+import stat
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable, Dict, List, Optional, Tuple
@@ -155,14 +156,14 @@ def _warn(opts: Options, message: str) -> None:
 
 def _is_dir(path: Path) -> bool:
     try:
-        return path.is_dir(follow_symlinks=False)
+        return stat.S_ISDIR(os.stat(path, follow_symlinks=False).st_mode)
     except OSError:
         return False
 
 
 def _file_size(path: Path, opts: Options) -> int:
     try:
-        return path.stat(follow_symlinks=False).st_size
+        return os.stat(path, follow_symlinks=False).st_size
     except OSError as exc:
         _warn(opts, f"treescope: warning: cannot stat '{path}': {exc.strerror or exc}")
         return 0
